@@ -647,41 +647,64 @@ plt.xticks([0,1,2,3,4,5])
 plt.legend()
 plt.show()
 
+fig, axes = plt.subplots(2,1, figsize=(9,7))
+fig.subplots_adjust(hspace = 0.5)
+
+x =[1,2,3,4,5,6,7,8,9,10]
+y = [10,9,8,7,6,5,4,3,2,1]
 
 
+axes[0].scatter(x,y)
+axes[0].set_title("sub-1")
+axes[0].set_ylabel("sub-1 y")
+axes[0].set_xlabel("sub-1 x")
+
+axes[1].scatter(y,x)
+axes[1].set_title("sub-2")
+axes[1].set_ylabel("sub-2 y")
+axes[1].set_xlabel("sub-2 x")
+
+# random resim
+plt.figure()
+img = np.random.random((50,50))
+plt.imshow(img, cmap = "gray") # 0(siyah), 1(beyaz) --> 0.5(gri)
+# plt.axis("off")
+plt.show()
+
+# %% OS
+import os
+
+print(os.name)
+
+currentDir = os.getcwd()
+print(currentDir)
+
+# new folder
+folder_name = "new_folder"
+os.mkdir(folder_name)
 
 
+new_folder_name = "new_folder_2"
+os.rename(folder_name,new_folder_name)
 
+os.chdir(currentDir+"\\"+new_folder_name)
+print(os.getcwd())
 
+os.chdir(currentDir)
+print(os.getcwd()) 
 
+files = os.listdir()
 
+for f in files:
+    if f.endswith(".py"):
+        print(f)
 
+os.rmdir(new_folder_name)
 
+for i in os.walk(currentDir):
+    print(i)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+os.path.exists(".anaconda")
 
 
 
